@@ -1,4 +1,4 @@
-package com.sleep.retrofit;
+package com.sleep.retrofit_analysis;
 
 import org.junit.Test;
 

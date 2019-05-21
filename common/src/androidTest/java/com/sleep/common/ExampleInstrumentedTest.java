@@ -1,4 +1,4 @@
-package com.sleep.retrofit;
+package com.sleep.common;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.sleep.retrofit.test", appContext.getPackageName());
+        assertEquals("com.sleep.common.test", appContext.getPackageName());
     }
 }
