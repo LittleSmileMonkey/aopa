@@ -15,7 +15,7 @@ public class HttpLogging {
 
     static {
         httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLogger());
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 
     private static class HttpLogger implements HttpLoggingInterceptor.Logger {

@@ -11,6 +11,6 @@ import retrofit2.http.Query
  */
 interface RetrofitApi {
 
-    @GET
+    @GET("getUserInfo")
     fun getUser(@Query("userId") userId: String): Call<Any>
 }
