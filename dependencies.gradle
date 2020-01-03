@@ -1,0 +1,10 @@
+ext {
+
+
+    /**
+     * android
+     */
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    minSdkVersion = 22
+}

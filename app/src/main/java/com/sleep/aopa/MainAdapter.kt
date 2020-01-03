@@ -2,7 +2,7 @@ package com.sleep.aopa
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import com.allen.library.SuperTextView
  * e-mail：xingkong@changjinglu.net
  *
  */
-class MainAdapter(private var activityList:MutableList<Class<out Activity>>): RecyclerView.Adapter<MainAdapter.MainHolder>() {
+class MainAdapter(private var activityList:MutableList<Class<out Activity>>): androidx.recyclerview.widget.RecyclerView.Adapter<MainAdapter.MainHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MainHolder {
         return MainHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_main, viewGroup, false))
     }
@@ -31,7 +31,7 @@ class MainAdapter(private var activityList:MutableList<Class<out Activity>>): Re
         }
     }
 
-    class MainHolder(view:View): RecyclerView.ViewHolder(view) {
+    class MainHolder(view:View): androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         val mStv = view.findViewById<SuperTextView>(R.id.stv_item)
     }
 }

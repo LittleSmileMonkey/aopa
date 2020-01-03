@@ -1,7 +1,7 @@
 package com.sleep.retrofit_analysis
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_retrofit_analysis.*
 import okhttp3.OkHttpClient

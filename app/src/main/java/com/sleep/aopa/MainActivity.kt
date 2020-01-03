@@ -2,10 +2,12 @@ package com.sleep.aopa
 
 import android.Manifest
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.sleep.retrofit_analysis.RetrofitAnalysisActivity
+import com.sleep.view_analysis.ScrollerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -24,7 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        requestPermissions(permissions, 999)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(permissions, 999)
+        }
         rcv_entrance.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rcv_entrance.adapter = MainAdapter(fetchAllActivities())
     }
@@ -33,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         val activities = mutableListOf<Class<out Activity>>()
 
         activities.add(RetrofitAnalysisActivity::class.java)
+        activities.add(ScrollerActivity::class.java)
 
         return activities
     }
