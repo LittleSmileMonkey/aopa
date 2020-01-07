@@ -6,10 +6,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.orhanobut.logger.Logger;
 
 import androidx.annotation.Nullable;
 
@@ -18,6 +17,8 @@ import androidx.annotation.Nullable;
  * e-mail：xingkong@changjinglu.net
  */
 public class CustomScrollerView extends View {
+
+    private static final String TAG = CustomScrollerView.class.getSimpleName();
 
     TextPaint textPaint = new TextPaint();
 
@@ -47,19 +48,19 @@ public class CustomScrollerView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Logger.d("ACTION_DOWN");
+                Log.d(TAG,"ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Logger.d("ACTION_MOVE");
+                Log.d(TAG,"ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                Logger.d("ACTION_UP");
+                Log.d(TAG,"ACTION_UP");
                 break;
             case MotionEvent.ACTION_CANCEL:
-                Logger.d("ACTION_CANCEL");
+                Log.d(TAG,"ACTION_CANCEL");
                 break;
             default:
-                Logger.d(event.getAction());
+                Log.d(TAG,String.valueOf(event.getAction()));
                 break;
         }
         return true;
