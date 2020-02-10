@@ -3,6 +3,8 @@
     package="com.sleep.opengl_analysis">
 
     <application>
+        <activity android:name=".AirHockeyActivity">
+        </activity>
         <activity android:name=".FirstOpenGlActivity">
         </activity>
     </application>

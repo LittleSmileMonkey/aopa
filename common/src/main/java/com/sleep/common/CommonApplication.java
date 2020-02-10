@@ -9,6 +9,10 @@ import com.blankj.utilcode.util.Utils;
  * e-mail：xingkong@changjinglu.net
  */
 public class CommonApplication extends Application {
+
+    //log开关
+    public static final boolean LOG_ON = true;
+
     @Override
     public void onCreate() {
         Utils.init(this);
