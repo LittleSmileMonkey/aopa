@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sleep.opengl_analysis.FirstOpenGlActivity
 import com.sleep.retrofit_analysis.RetrofitAnalysisActivity
 import com.sleep.view_analysis.ScrollerActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         activities.add(RetrofitAnalysisActivity::class.java)
         activities.add(ScrollerActivity::class.java)
+        activities.add(FirstOpenGlActivity::class.java)
 
         return activities
     }

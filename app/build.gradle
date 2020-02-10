@@ -37,5 +37,5 @@ dependencies {
     implementation project(":common")
     implementation project(":retrofit_analysis")
     implementation project(":view_analysis")
-
+    implementation project(":opengl_analysis")
 }

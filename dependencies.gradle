@@ -7,4 +7,10 @@ ext {
     targetSdkVersion = 28
     compileSdkVersion = 28
     minSdkVersion = 22
+
+    /**
+     * common used version
+     */
+    superTextViewVersion = "2.4.2"
+    utilCodeXVersion = "1.26.0"
 }

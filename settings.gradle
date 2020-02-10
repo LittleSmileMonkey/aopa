@@ -1,1 +1,1 @@
-include ':app', ':retrofit_analysis', ':common', ':android_plugin_analysis', ':view_analysis'
+include ':app', ':retrofit_analysis', ':common', ':android_plugin_analysis', ':view_analysis', ':opengl_analysis'
