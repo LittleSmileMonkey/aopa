@@ -3,7 +3,7 @@ package com.sleep.opengl_analysis
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.sleep.opengl_analysis.airhockey.AirHockeyRender_v1
+import com.sleep.opengl_analysis.airhockey.AirHockeyRender_v2
 import com.sleep.opengl_analysis.util.OpenGlUtil
 import kotlinx.android.synthetic.main.activity_first_open_gl.*
 
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_first_open_gl.*
 class AirHockeyActivity : AppCompatActivity() {
 
     private var isSupportGl20 = false
-    private val mRender = AirHockeyRender_v1()
+    private val mRender = AirHockeyRender_v2()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
