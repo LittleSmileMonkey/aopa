@@ -5,10 +5,10 @@ package com.sleep.opengl_analysis.util;
  * e-mail：xingkong@changjinglu.net
  */
 public class MatrixHelper {
-    public static void prespectiveM(float[] m, float yFovInDegress, float asceptRatio, float n, float f) {
-        final float angleInDegress = (float) (yFovInDegress * Math.PI / 180.0);
-        final float a = (float) (1.0 / (Math.tan(angleInDegress / 2.0)));
-        m[0] = a / asceptRatio;
+    public static void perspectiveM(float[] m, float yFovInDegrees, float aspect, float n, float f) {
+        final float angleInDegrees = (float) (yFovInDegrees * Math.PI / 180.0);
+        final float a = (float) (1.0 / (Math.tan(angleInDegrees / 2.0)));
+        m[0] = a / aspect;
         m[1] = 0f;
         m[2] = 0f;
         m[3] = 0f;
@@ -23,9 +23,9 @@ public class MatrixHelper {
         m[10] = -((f + n) / (f - n));
         m[11] = -1f;
 
-        m[8] = 0f;
-        m[9] = 0f;
-        m[10] = -((2f * f * n) / (f - n));
-        m[11] = 0f;
+        m[12] = 0f;
+        m[13] = 0f;
+        m[14] = -((2f * f * n) / (f - n));
+        m[15] = 0f;
     }
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import com.sleep.common.CommonApplication;
 import com.sleep.common.TagUtil;
 import com.sleep.opengl_analysis.R;
+import com.sleep.opengl_analysis.util.MatrixHelper;
 import com.sleep.opengl_analysis.util.ShaderHelper;
 import com.sleep.opengl_analysis.util.TextResourceReader;
 
@@ -68,6 +69,7 @@ public class AirHockeyRender_v2 implements GLSurfaceView.Renderer {
     };
 
     private float[] projectionMatrix = new float[16];
+    private float[] modelMatrix = new float[16];
 
     private int program;
 
@@ -126,13 +128,13 @@ public class AirHockeyRender_v2 implements GLSurfaceView.Renderer {
             Log.i(TagUtil.getTag(this), String.format("width = %s, height = %s", width, height));
         }
         glViewport(0, 0, width, height);
-        //设置Matrix正交投影矩阵
-        final float aspectRatio = width > height ? (float) width / (float) height : (float) height / (float) width;
-        if (width > height) {
-            Matrix.orthoM(projectionMatrix, 0, -aspectRatio, aspectRatio, -1.0f, 1.0f, -1.0f, 1.0f);
-        } else {
-            Matrix.orthoM(projectionMatrix, 0, -1.0f, 1.0f, -aspectRatio, aspectRatio, -1.0f, 1.0f);
-        }
+        MatrixHelper.perspectiveM(projectionMatrix, 45, (float) width / (float) height, 1f, 0f);
+        Matrix.setIdentityM(modelMatrix, 0);
+        Matrix.translateM(modelMatrix, 0, 0f, 0f, -3f);
+        Matrix.rotateM(modelMatrix, 0, -60f, 1f, 0f, 0f);
+        final float[] temp = new float[16];
+        Matrix.multiplyMM(temp, 0, projectionMatrix, 0, modelMatrix, 0);
+        System.arraycopy(temp, 0, projectionMatrix, 0, temp.length);
     }
 
     @Override
