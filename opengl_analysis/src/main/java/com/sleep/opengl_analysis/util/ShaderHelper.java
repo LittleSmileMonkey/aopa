@@ -18,7 +18,7 @@ public class ShaderHelper {
         return compileShader(GL_VERTEX_SHADER, shaderCode);
     }
 
-    public static int complieFragmentShader(String shaderCode) {
+    public static int compileFragmentShader(String shaderCode) {
         return compileShader(GL_FRAGMENT_SHADER, shaderCode);
     }
 
@@ -52,6 +52,12 @@ public class ShaderHelper {
         return shaderObjectId;
     }
 
+    /**
+     * 创建program并连接顶点着色器 & 片段着色器
+     * @param vertexShaderId
+     * @param fragmentShaderId
+     * @return
+     */
     public static int linkProgram(int vertexShaderId, int fragmentShaderId) {
         final int programObjectId = glCreateProgram();
         if (programObjectId == 0) {
@@ -77,11 +83,33 @@ public class ShaderHelper {
         return programObjectId;
     }
 
+    /**
+     * 验证program是否正常
+     * @param programObjectId program 句柄
+     * @return 是否正常
+     */
     public static boolean validateProgram(int programObjectId) {
         glValidateProgram(programObjectId);
         final int[] validateStatus = new int[1];
         glGetProgramiv(programObjectId, GL_VALIDATE_STATUS, validateStatus, 0);
         Log.v(TAG, "Result of validating program: " + validateStatus[0] + "\nLog:" + glGetProgramInfoLog(programObjectId));
         return validateStatus[0] != 0;
+    }
+
+    /**
+     * 辅助链接program
+     * @param vertexShaderSource 顶点着色器代码
+     * @param fragmentShaderSource 片段着色器代码
+     * @return program 句柄
+     */
+    public static int bindProgram(String vertexShaderSource, String fragmentShaderSource) {
+        int program;
+        final int vertexShader = compileVertexShader(vertexShaderSource);
+        final int fragmentShader = compileFragmentShader(fragmentShaderSource);
+        program = linkProgram(vertexShader, fragmentShader);
+        if (CommonApplication.LOG_ON) {
+            validateProgram(program);
+        }
+        return program;
     }
 }

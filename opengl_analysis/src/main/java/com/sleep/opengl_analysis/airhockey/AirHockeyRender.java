@@ -101,7 +101,7 @@ public class AirHockeyRender implements GLSurfaceView.Renderer {
 
         //step 4. 加载并编译各种shader并验证
         int vertexShader = ShaderHelper.compileVertexShader(vertexShaderSource);
-        int fragmentShader = ShaderHelper.complieFragmentShader(fragmentShaderSource);
+        int fragmentShader = ShaderHelper.compileFragmentShader(fragmentShaderSource);
 
         //step 5. 创建并连接program，验证program
         program = ShaderHelper.linkProgram(vertexShader, fragmentShader);
