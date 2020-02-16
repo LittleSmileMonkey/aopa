@@ -73,7 +73,7 @@ public class AirHockeyRender_v3 implements GLSurfaceView.Renderer {
         glClear(GL_COLOR_BUFFER_BIT);
 
         textureProgram.useProgram();
-        textureProgram.setUniforms(projectionMatrix,texture);
+        textureProgram.setUniforms(projectionMatrix, texture);
         table.bindData(textureProgram);
         table.draw();
 
