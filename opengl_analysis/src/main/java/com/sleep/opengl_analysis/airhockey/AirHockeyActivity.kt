@@ -3,7 +3,7 @@ package com.sleep.opengl_analysis
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.sleep.opengl_analysis.airhockey_v3.AirHockeyRender_v3
+import com.sleep.opengl_analysis.airhockey.AirHockeyRender_v3
 import com.sleep.opengl_analysis.util.OpenGlUtil
 import kotlinx.android.synthetic.main.activity_first_open_gl.*
 

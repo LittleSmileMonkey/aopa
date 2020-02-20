@@ -2,7 +2,7 @@ package com.sleep.opengl_analysis.objects;
 
 import android.opengl.GLES20;
 
-import com.sleep.opengl_analysis.airhockey_v3.VertexArray;
+import com.sleep.opengl_analysis.airhockey.VertexArray;
 import com.sleep.opengl_analysis.programs.ColorShaderProgram;
 import com.sleep.opengl_analysis.util.Constants;
 

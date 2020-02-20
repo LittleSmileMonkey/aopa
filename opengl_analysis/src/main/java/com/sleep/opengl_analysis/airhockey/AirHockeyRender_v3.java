@@ -1,4 +1,4 @@
-package com.sleep.opengl_analysis.airhockey_v3;
+package com.sleep.opengl_analysis.airhockey;
 
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;

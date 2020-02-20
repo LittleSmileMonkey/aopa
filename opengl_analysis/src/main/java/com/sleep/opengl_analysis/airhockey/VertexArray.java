@@ -1,4 +1,4 @@
-package com.sleep.opengl_analysis.airhockey_v3;
+package com.sleep.opengl_analysis.airhockey;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
