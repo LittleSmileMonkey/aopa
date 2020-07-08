@@ -38,4 +38,8 @@ dependencies {
     implementation project(":retrofit_analysis")
     implementation project(":view_analysis")
     implementation project(":opengl_analysis")
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-alpha-2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
 }

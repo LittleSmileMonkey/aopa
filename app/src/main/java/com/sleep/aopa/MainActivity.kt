@@ -4,6 +4,8 @@ import android.Manifest
 import android.app.Activity
 import android.os.Build
 import android.os.Bundle
+import android.os.StrictMode
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sleep.opengl_analysis.AirHockeyActivity
@@ -11,6 +13,7 @@ import com.sleep.opengl_analysis.FirstOpenGlActivity
 import com.sleep.retrofit_analysis.RetrofitAnalysisActivity
 import com.sleep.view_analysis.ScrollerActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.system.exitProcess
 
 /**
  * author：xingkong on 2019-06-02
@@ -33,6 +36,16 @@ class MainActivity : AppCompatActivity() {
         }
         rcv_entrance.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rcv_entrance.adapter = MainAdapter(fetchAllActivities())
+        StrictMode.setVmPolicy(StrictMode.VmPolicy
+                .Builder()
+                .detectLeakedClosableObjects()
+                .detectActivityLeaks()
+                .detectLeakedClosableObjects()
+                .penaltyLog()
+                .build())
+        StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder()
+                .detectCustomSlowCalls()
+                .build())
     }
 
     private fun fetchAllActivities(): MutableList<Class<out Activity>> {
@@ -44,5 +57,21 @@ class MainActivity : AppCompatActivity() {
         activities.add(AirHockeyActivity::class.java)
 
         return activities
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        exitProcess(0)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("MainActivity","onResume invoke")
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        Log.i("MainActivity","onWindowFocusChanged invoke")
+        reportFullyDrawn()
     }
 }

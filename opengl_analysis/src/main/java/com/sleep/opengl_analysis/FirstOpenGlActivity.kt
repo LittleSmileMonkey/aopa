@@ -1,8 +1,12 @@
 package com.sleep.opengl_analysis
 
 import android.os.Bundle
+import android.os.FileObserver
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_first_open_gl.*
+import java.io.File
+import kotlin.concurrent.thread
 
 class FirstOpenGlActivity : AppCompatActivity() {
 
@@ -22,11 +26,23 @@ class FirstOpenGlActivity : AppCompatActivity() {
 //            finish()
 //        }
         bt_start.setOnClickListener {
-            my_surface_view.startDraw()
+            Thread.sleep(10 * 1000)
         }
 
         bt_stop.setOnClickListener {
             my_surface_view.stopDraw()
+        }
+        thread {
+            val file = File("/data/anr/traces.txt")
+            if (!file.exists()) {
+                file.createNewFile()
+            }
+            val fo = object : FileObserver(file.absolutePath) {
+                override fun onEvent(event: Int, path: String?) {
+                    Log.i("FileObserver", "onEvent = $event, path = $path")
+                }
+            }
+            fo.startWatching()
         }
     }
 
